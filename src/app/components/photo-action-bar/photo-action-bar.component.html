@@ -1,0 +1,50 @@
+<div class="bar">
+  <mat-icon [ngClass]="{'selected': like}"
+            (click)="toggleLike()">{{like ? 'favorite' : 'favorite_border'}}</mat-icon>
+
+  <div class="ranking">
+    <mat-icon
+      *ngFor="let i of rates; let ind = index"
+      class="rating"
+      [ngClass]="{'selected': ind + 1 <= rating}"
+      (click)="setRating(ind)"
+    >
+      {{rating < ind + 1 ? 'star_border' : 'star'}}
+    </mat-icon>
+  </div>
+
+
+  <button mat-icon-button class="comment mat-icon-18px" [ngClass]="{'has-comment': comment}"
+          (click)="openCommentDialog()">
+    <mat-icon>{{comment ? 'comments' : 'comments_disabled'}}</mat-icon>
+  </button>
+
+  <button
+    mat-icon-button
+    #trigger="cdkOverlayOrigin"
+    class="comment mat-icon-18px"
+    (click)="isOpen = !isOpen"
+    type="button"
+    cdkOverlayOrigin
+    [style.display]="showInfo ? 'block' : 'none'"
+  >
+    <mat-icon>contact_support</mat-icon>
+  </button>
+
+  <ng-template
+    cdkConnectedOverlay
+    [cdkConnectedOverlayOrigin]="trigger"
+    [cdkConnectedOverlayOpen]="isOpen"
+  >
+    <div  class="info-overlay">
+      <h1>Shortcuts:</h1>
+      <ul>
+        <li><span class="shortcut">Previous photo</span><span class="key">&lt;</span></li>
+        <li><span class="shortcut">Next photo</span><span class="key">&gt;</span></li>
+        <li><span class="shortcut">Like</span><span class="key">L</span></li>
+        <li><span class="shortcut">Cancel rating</span><span class="key">0</span></li>
+        <li><span class="shortcut">Rate (1-5)</span><span class="key">1</span></li>
+      </ul>
+    </div>
+  </ng-template>
+</div>

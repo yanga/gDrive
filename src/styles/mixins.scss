@@ -1,0 +1,28 @@
+$fix-mqs: false !default;
+
+$breakpoints: (
+  xsmall: null,
+  small: 480,
+  medium: 768,
+  large: 1024,
+  xlarge: 1280,
+);
+
+@mixin mq($breakpoint, $query: 'min-width', $type: 'screen') {
+  @if $fix-mqs {
+    @if $fix-mqs >= $breakpoint {
+      @content;
+    }
+  } @else {
+    @media #{$type} and (#{$query}: #{$breakpoint}) {
+      @content;
+    }
+  }
+}
+
+
+@mixin on-mobile {
+  @include mq('480px', 'max-width') {
+    @content;
+  }
+}

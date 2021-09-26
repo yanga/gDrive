@@ -1,0 +1,22 @@
+<div class="lightbox">
+  <div class="image-wrapper">
+    <div class="image-container" [style.background-image]="'url(&quot;' + img?.webContentLink + '&quot;)'"></div>
+  </div>
+  <div class="footer">
+    <app-photo-action-bar
+      *ngIf="img"
+      [like]="img.like"
+      [rating]="img.rating"
+      [comment]="img.comment"
+      [showInfo]="true"
+      (onLike)="setLike(img.id, $event)"
+      (onRating)="setRating(img.id, $event)"
+      (onComment)="setComment(img.id, $event)"
+    ></app-photo-action-bar>
+    <div class="name">{{img?.name}}</div>
+    <div class="info">{{index}} / {{total}}</div>
+  </div>
+
+  <mat-icon class="arrow back" (click)="back()">arrow_back_ios</mat-icon>
+  <mat-icon class="arrow forward" (click)="next()">arrow_forward_ios</mat-icon>
+</div>

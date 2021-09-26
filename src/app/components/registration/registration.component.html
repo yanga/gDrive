@@ -1,0 +1,17 @@
+<div class="registration">
+  <h1>Sign-in</h1>
+  <form [formGroup]="registrationForm">
+    <mat-form-field appearance="standard" style="width: 100%" color="accent">
+      <mat-label>Email</mat-label>
+      <input type="email" matInput formControlName="email" [errorStateMatcher]="matcher"
+             placeholder="Ex. pat@example.com">
+      <mat-error *ngIf="registrationForm.hasError('email') && !registrationForm.hasError('required')">
+        Please enter a valid email address
+      </mat-error>
+      <mat-error *ngIf="registrationForm.hasError('required')">
+        Email is <strong>required</strong>
+      </mat-error>
+    </mat-form-field>
+    <button mat-raised-button color="primary" [disabled]="!registrationForm.valid" (click)="submit()">Submit</button>
+  </form>
+</div>

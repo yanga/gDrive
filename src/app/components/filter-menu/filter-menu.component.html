@@ -1,0 +1,43 @@
+<div class="filter-menu">
+
+  <span class="label">Filters:</span>
+
+
+  <button class="comment-container" mat-icon-button color="warn" (click)="toggleComment()">
+    <mat-icon class="like"  [ngClass]="{'off': !comment}">comment</mat-icon>
+  </button>
+
+  <div class="divider"></div>
+
+  <button class="like-container" mat-icon-button color="warn" (click)="toggleLike()">
+    <mat-icon class="like"  [ngClass]="{'off': !like}">favorite</mat-icon>
+  </button>
+
+  <div class="divider"></div>
+
+  <div class="ranking">
+    <mat-icon
+      aria-label="Example icon-button with a heart icon"
+      *ngFor="let i of rates; let ind = index"
+      class="rating"
+      [ngClass]="{'selected': ind + 1 <= rating}"
+      (click)="setRating(ind)"
+    >
+      {{rating < ind + 1 ? 'star_border' : 'star'}}
+    </mat-icon>
+  </div>
+
+  <mat-button-toggle-group appearance="legacy"  [value]="ratingOperator">
+    <mat-button-toggle
+      *ngFor="let operator of operators"
+      [value]="operator"
+      (click)="setRatingOperator(operator)"
+    >{{ operator }}</mat-button-toggle>
+  </mat-button-toggle-group>
+
+  <div class="divider"></div>
+
+  <button mat-icon-button [color]="hasFiltersActive ? 'accent' : ''" class="clear-filters" (click)="clearFilters()">
+    <mat-icon>filter_alt</mat-icon>
+  </button>
+</div>

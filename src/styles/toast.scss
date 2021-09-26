@@ -1,0 +1,25 @@
+@import "vars";
+
+.toast-dialog-success {
+  background-color: #f3f3f2;
+  border: 1px solid $success-color;
+  border-left-width: 16px;
+  color: $success-color;
+  white-space: pre;
+
+  .mat-simple-snackbar-action {
+    color: $dark-text;
+  }
+}
+
+.toast-dialog-error {
+  background-color: #f3f3f2;
+  border: 1px solid $error-color;
+  border-left-width: 16px;
+  color: $error-color;
+  white-space: pre;
+
+  .mat-simple-snackbar-action {
+    color: $dark-text;
+  }
+}

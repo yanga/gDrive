@@ -1,0 +1,59 @@
+@import "../../../styles/vars";
+
+.filter-menu {
+  width: 100%;
+  height: 50px;
+  display: flex;
+  flex-flow: row;
+  padding: 0 24px;
+  line-height: 50px;
+  align-items: center;
+
+  .label {
+    font-size: 28px;
+    padding: 0 32px;
+  }
+  .filter-icon {
+    font-size: 44px;
+    color: #bbbbbb;
+    margin-right: 48px;
+  }
+
+  .like {
+    &.off {
+      color: #bbbbbb;
+    }
+  }
+
+  .ranking {
+    display: flex;
+    margin-right: 16px;
+    .rating {
+      cursor: pointer;
+      user-select: none;
+
+      &.selected {
+        color: $pale-red;
+      }
+    }
+  }
+
+  .mat-button-toggle-group {
+    height: 30px;
+    line-height: 30px;
+  }
+
+  .clear-filters {
+    .mat-icon {
+      font-size: 32px;
+    }
+  }
+  .divider {
+    display: inline-block;
+    width: 4px;
+    background-color: #bbbbbb;
+    height: 32px;
+    margin: 0 32px;
+  }
+}
+

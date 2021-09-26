@@ -1,0 +1,38 @@
+<div class="gallery-actions">
+  <span (click)="selectAll()" class="action">Select all</span>
+  <span class="separator"></span>
+  <span (click)="selectNone()" class="action">Select None</span>
+  <div class="thumb-slider">
+    <mat-icon class="thumb thumb-small">image</mat-icon>
+    <mat-slider min="1" max="10" step="1" [value]="thumbDefaultSize" (change)="changeThumbnailSize($event)" color="primary"></mat-slider>
+    <mat-icon class="thumb">image</mat-icon>
+  </div>
+</div>
+
+<div class="gallery" *ngIf="isRegistered | async; else registration">
+  <mat-spinner *ngIf="loadingImages"></mat-spinner>
+  <div
+    class="image-container"
+    *ngFor="let img of driveImages"
+    [ngStyle]="{'width': thumbWidth + 'px', 'height': (thumbWidth * 1.3) + 'px'}"
+  >
+    <img
+      [src]="'https://drive.google.com/thumbnail?sz=w' + thumbWidth + '&id=' + img.id"
+      referrerPolicy="no-referrer"
+      loading="lazy"
+      (click)="openLightBox(img)"
+    />
+    <app-photo-action-bar
+      [like]="img.like"
+      [rating]="img.rating"
+      [comment]="img.comment"
+      (onLike)="setLike(img.id, $event)"
+      (onRating)="setRating(img.id, $event)"
+      (onComment)="setComment(img.id, $event)"
+    ></app-photo-action-bar>
+  </div>
+</div>
+
+<ng-template #registration>
+  <app-registration></app-registration>
+</ng-template>

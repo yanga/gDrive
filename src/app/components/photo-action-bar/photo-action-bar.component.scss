@@ -1,0 +1,63 @@
+@import "../../../styles/vars";
+
+.bar {
+  padding: 0 4px;
+  display: flex;
+  justify-content: space-between;
+
+  mat-icon {
+    color: silver;
+    font-size: 18px;
+    line-height: 1em;
+    cursor: pointer;
+    user-select: none;
+    width: 18px;
+
+    &.selected {
+      color: $badge-red;
+    }
+  }
+
+  .rating {
+    &.selected {
+      color: $pale-red;
+    }
+  }
+
+  .comment {
+    &.has-comment {
+      .mat-icon {
+        color: red;
+      }
+    }
+  }
+}
+
+.info-overlay {
+  width: 300px;
+  padding: 16px;
+  color: #bbbbbb;
+  border-radius: 16px;
+  background-color: rgba(0, 0, 0, 0.7);
+
+  h1 {
+    ont-size: 18px;
+    margin-bottom: 16px;
+    font-weight: normal;
+  }
+  li {
+    $size: 28px;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 12px;
+    line-height: $size;
+    .key {
+      width: $size;
+      height: $size;
+      line-height: $size;
+      border: 1px solid #ffffff;
+      border-radius: 5px;
+      text-align: center;
+    }
+  }
+}
