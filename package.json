@@ -1,6 +1,9 @@
 {
   "name": "google-drive-app",
   "version": "0.0.0",
+  "engines": {
+    "node": "16.x"
+  },
   "scripts": {
     "ng": "ng",
     "startOld": "ng serve",
