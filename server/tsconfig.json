@@ -5,7 +5,9 @@
     "rootDir": "./",
     "outDir": "../dist/server",
     "esModuleInterop": true,
-    "strict": false,
+    "strict": false
+  },
+  "angularCompilerOptions": {
     "allowSyntheticDefaultImports": true
   }
 }
