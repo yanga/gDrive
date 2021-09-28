@@ -48,3 +48,4 @@ Thumbs.db
 #server/node_modules/
 #/server/node_modules/.bin/
 #/server/node_modules/
+/angular-build/
