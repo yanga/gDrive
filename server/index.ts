@@ -3,7 +3,7 @@ import {driveService} from './service/drive.service';
 import {mailService} from './service/mail.service';
 
 const app = express();
-const PORT = 3000;
+const PORT = process.env.PORT || 3000;
 
 const handleResponse = (res: any, data: any) => res.status(200).send(data);
 
@@ -50,6 +50,6 @@ app.post('/sendMail', async (req, res, next) => {
     .catch(next);
 });
 
-app.listen(process.env.PORT || PORT, () => {
+app.listen(PORT, () => {
   console.log(`⚡️[server]: Server is running at https://localhost:${PORT}`);
 });
