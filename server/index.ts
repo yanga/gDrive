@@ -30,21 +30,21 @@ app.use(express.urlencoded({
   extended: true
 }))
 
-app.get('/', (req, res) => res.send('Express + TypeScript Server'));
+app.get('/', (req: any, res: any) => res.send('Express + TypeScript Server'));
 
-app.get('/getFiles/:clientShareId',async (req ,res, next) => {
+app.get('/getFiles/:clientShareId',async (req: any ,res: any, next: any) => {
   driveService.getFilesByShareId(req.params.clientShareId)
     .then((data: any) => handleResponse(res, data))
     .catch(next);
 });
 
-app.get('/getFolder/:clientShareId',async (req ,res, next) => {
+app.get('/getFolder/:clientShareId',async (req: any ,res: any, next: any) => {
   driveService.getFolderName(req.params.clientShareId)
     .then((data: any) => handleResponse(res, data))
     .catch(next);
 });
 
-app.post('/sendMail', async (req, res, next) => {
+app.post('/sendMail', async (req: any, res: any, next: any) => {
   mailService.sendSelection(req.body)
     .then((data: any) => handleResponse(res, data))
     .catch(next);
