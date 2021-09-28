@@ -7,11 +7,12 @@
   "scripts": {
     "ng": "ng",
     "tsc": "tsc",
+    "postinstall": "npm run tsc",
     "start": "npm run build:server && node dist/server/index.js",
     "start:dev": "ng serve --proxy-config proxy.conf.json --port 4200",
     "start-server": "nodemon server/index.ts",
     "build": "ng build",
-    "build:server": "npm run tsc -p server/tsconfig.json",
+    "build:server": "tsc -p server/tsconfig.json",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
     "heroku-postbuild": "ng build --prod"
