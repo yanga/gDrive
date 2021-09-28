@@ -3,14 +3,14 @@ import {driveService} from './service/drive.service';
 import {mailService} from './service/mail.service';
 
 const app = express();
-const PORT = 3002;
+const PORT = 3000;
 
 const handleResponse = (res: any, data: any) => res.status(200).send(data);
 
 app.use(function (req, res, next) {
 
   // Website you wish to allow to connect
-  res.setHeader('Access-Control-Allow-Origin', 'http://localhost:4202');
+  res.setHeader('Access-Control-Allow-Origin', 'http://localhost:4200');
 
   // Request methods you wish to allow
   res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');

@@ -6,6 +6,7 @@ import {ResponseData} from '../models/response-data.model';
 import {AppImage, DriveImage, FolderData} from '../models/image.model';
 import {MimeType} from '../models/mime-type.enum';
 import {DataFilters} from '../models/filters.model';
+import {ConfigService} from './config.service';
 
 @Injectable({
   providedIn: 'root'
@@ -44,7 +45,7 @@ export class DataService {
 
   filters = new BehaviorSubject<DataFilters>({...this.initialFilters});
 
-  constructor(private http: HttpClient) {
+  constructor(private http: HttpClient, private config: ConfigService) {
     this.isRegistered.next(!!localStorage.getItem('email'));
   }
 
@@ -68,7 +69,7 @@ export class DataService {
         },
       });
     } else {
-      return this.http.get<ResponseData>(`http://localhost:3002/getFiles/${clientShareId}`).pipe(
+      return this.http.get<ResponseData>(`${this.config.getServer()}/getFiles/${clientShareId}`).pipe(
         tap(res => {
           const files = res.data.files;
           this.folderName.next(res.config.folder.name);
