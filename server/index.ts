@@ -50,6 +50,6 @@ app.post('/sendMail', async (req, res, next) => {
     .catch(next);
 });
 
-app.listen(PORT, () => {
+app.listen(process.env.PORT || PORT, () => {
   console.log(`⚡️[server]: Server is running at https://localhost:${PORT}`);
 });
