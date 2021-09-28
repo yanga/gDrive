@@ -5,7 +5,7 @@
     "rootDir": "./",
     "outDir": "../dist/server",
     "esModuleInterop": true,
-    "strict": true,
+    "strict": false,
     "allowSyntheticDefaultImports": true
   }
 }
