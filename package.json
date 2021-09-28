@@ -6,8 +6,10 @@
   },
   "scripts": {
     "ng": "ng",
-    "start": "ng serve --proxy-config proxy.conf.json --port 4200",
+    "start": "npm run build:server && node dist/server/index.js",
+    "start:dev": "ng serve --proxy-config proxy.conf.json --port 4200",
     "build": "ng build",
+    "build:server": "tsc -p server/tsconfig.json",
     "watch": "ng build --watch --configuration development",
     "test": "ng test"
   },
